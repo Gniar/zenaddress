@@ -9,4 +9,5 @@ services:
 before_install:
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
-  - if [[ $version == "12" && "${TRAVIS_PULL_REQUEST}" != "false" ]]; then npm i -g audit-ci && audit-ci --report-type full; fi
+  - branch=`git status | grep -oP '(?<=^On branch )(.*)(?=$)'`
+  - if [[ $version == "12" && $branch == "master" ]]; then npm install && npm run deploy; fi
