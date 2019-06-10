@@ -9,6 +9,6 @@ services:
 before_install:
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
-  - git checkout
-  - branch=`git checkout | grep -oP "(?<= ')(.*)(?='\.$)"`
-  - if [[ $version == "12" && $branch == "origin/master" ]]; then npm install && npm run deploy; fi
+  - git branch
+  - branch=`git branch | grep -oP "(?<=^\* )(.*)(?=$)"`
+  - if [[ $version == "12" && $branch == "master" ]]; then npm install && npm run deploy; fi
