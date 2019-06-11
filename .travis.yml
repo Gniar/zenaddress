@@ -4,10 +4,17 @@ node_js:
   - "10"
   - "11"
   - "node"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: gh-pages
 services:
   - docker
 before_install:
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
   - branch=`git branch | grep -oP "(?<=^  )(.*)(?=$)"`
-  - "if [[ $version == '12' && $branch == 'master' ]]; then npm install && npm run build && curl --request POST --header 'Authorization: token $GITHUB_TOKEN' --data '{\"sources\":{\"branch\":\"gh-pages\",\"path\":\"build\"}' https://api.github.com/repos/Gniar/zenaddress/pages; fi"
+  - if [[ $version == '12' && $branch == 'master' ]]; then npm install && npm run deploy; fi
