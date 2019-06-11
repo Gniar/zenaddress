@@ -10,12 +10,13 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: true
   verbose: true
+  local_dir: build
   on:
-    branch: gh-pages
+    branch: master
 services:
   - docker
 before_install:
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
   - branch=`git branch | grep -oP "(?<=^  )(.*)(?=$)"`
-  - if [[ $version == '12' && $branch == 'master' ]]; then npm install && npm run deploy; fi
+  - if [[ $version == '12' && $branch == 'master' ]]; then npm install && npm run build && npm run test; fi
