@@ -1,11 +1,19 @@
 {
-  "main.css": "static/css/main.588f8617.css",
-  "main.css.map": "static/css/main.588f8617.css.map",
-  "main.js": "static/js/main.5b5cba97.js",
-  "main.js.map": "static/js/main.5b5cba97.js.map",
-  "static\\media\\bg_home_2.jpg": "static/media/bg_home_2.d9c8d99b.jpg",
-  "static\\media\\bg_wallet_back.png": "static/media/bg_wallet_back.74dd88f4.png",
-  "static\\media\\bg_wallet_front.png": "static/media/bg_wallet_front.70e05b27.png",
-  "static\\media\\bg_wallet_sidebyside.png": "static/media/bg_wallet_sidebyside.27b17b30.png",
-  "static\\media\\logo_full.png": "static/media/logo_full.09e5ad83.png"
+  "files": {
+    "main.css": "/zenaddress/static/css/main.23c58351.chunk.css",
+    "main.js": "/zenaddress/static/js/main.a2e4bba8.chunk.js",
+    "main.js.map": "/zenaddress/static/js/main.a2e4bba8.chunk.js.map",
+    "runtime~main.js": "/zenaddress/static/js/runtime~main.43880aaa.js",
+    "runtime~main.js.map": "/zenaddress/static/js/runtime~main.43880aaa.js.map",
+    "static/js/2.758ee207.chunk.js": "/zenaddress/static/js/2.758ee207.chunk.js",
+    "static/js/2.758ee207.chunk.js.map": "/zenaddress/static/js/2.758ee207.chunk.js.map",
+    "index.html": "/zenaddress/index.html",
+    "precache-manifest.cd18c22cdf6474df5013a89f786421d1.js": "/zenaddress/precache-manifest.cd18c22cdf6474df5013a89f786421d1.js",
+    "service-worker.js": "/zenaddress/service-worker.js",
+    "static/css/main.23c58351.chunk.css.map": "/zenaddress/static/css/main.23c58351.chunk.css.map",
+    "static/media/App.css": "/zenaddress/static/media/zen_paper_front.b2f9fe3f.png",
+    "static/media/logo_full.png": "/zenaddress/static/media/logo_full.09e5ad83.png",
+    "static/media/zen_paper_back.png": "/zenaddress/static/media/zen_paper_back.57e31348.png",
+    "static/media/zen_paper_sidebyside.png": "/zenaddress/static/media/zen_paper_sidebyside.16b33629.png"
+  }
 }
