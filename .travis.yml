@@ -15,7 +15,7 @@ deploy:
     branch: master
 stages:
   - name: deploy
-    if: "12" == `node --version | grep -oP '(?<=v)\d*?(?=\.)'`
+    if: $TRAVIS_NODE_VERSION == "12"
 services:
   - docker
 before_install:
