@@ -3,22 +3,24 @@ node_js:
   - "8"
   - "10"
   - "11"
-  - "12"
-stages:
-  - name: deploy
-  if: true != false
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  verbose: true
-  local_dir: build
-  on:
-    branch: master
+  - "node"
 services:
   - docker
 before_install:
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
   - npm install && npm run build
+jobs:
+  include:
+    - stage: Github-Pages deploy
+      node_js: "node"
+      script: echo "Deploying to gh-pages ..."
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        verbose: true
+        local_dir: build
+        on:
+          branch: master
