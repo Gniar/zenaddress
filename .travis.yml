@@ -6,7 +6,7 @@ node_js:
   - "12"
 stages:
   - name: deploy
-  if: node_js == 12
+  if: language == 12
 deploy:
   provider: pages
   skip_cleanup: true
