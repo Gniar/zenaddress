@@ -11,7 +11,7 @@ before_install:
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
   - npm install && npm run build
 deploy:
-  if: $TRAVIS_NODE_VERSION == "12"
+  node_js: "12"
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
