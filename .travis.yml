@@ -3,7 +3,7 @@ node_js:
   - "8"
   - "10"
   - "11"
-  - "node"
+  - "12"
 deploy:
   provider: pages
   skip_cleanup: true
@@ -15,10 +15,11 @@ deploy:
     branch: master
 stages:
   - name: deploy
-    if: branch = master
+    if: "12" == `node --version | grep -oP '(?<=v)\d*?(?=\.)'`
 services:
   - docker
 before_install:
+  - echo $TRAVIS_NODE_VERSION
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
   - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
   - npm install && npm run build
