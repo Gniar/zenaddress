@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c978dd5940b2b9f86d564e6aac800286",
+    "revision": "c79393fa09aeab8d0a62c2a2a182b868",
     "url": "/zenaddress/index.html"
   },
   {
-    "revision": "b60f3abf707978245c73",
+    "revision": "42d970fd63b160211320",
     "url": "/zenaddress/static/css/main.23c58351.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/zenaddress/static/js/2.758ee207.chunk.js"
   },
   {
-    "revision": "b60f3abf707978245c73",
-    "url": "/zenaddress/static/js/main.a2e4bba8.chunk.js"
+    "revision": "42d970fd63b160211320",
+    "url": "/zenaddress/static/js/main.09c11e06.chunk.js"
   },
   {
     "revision": "3ae5d7a5bf7e5531898c",
