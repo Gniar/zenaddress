@@ -4,6 +4,9 @@ node_js:
   - "10"
   - "11"
   - "12"
+stages:
+  - name: deploy
+  if: env(TRAVIS_NODE_VERSION) == "12"
 deploy:
   provider: pages
   skip_cleanup: true
