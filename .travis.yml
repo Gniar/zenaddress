@@ -8,7 +8,8 @@ services:
   - docker
 before_install:
   - version=`node --version | grep -oP '(?<=v)\d*?(?=\.)'`
-  - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && npm install && npm run build"
+  - branch=`git branch | grep -oP "(?<=^  )(.*)(?=$)"`
+  - docker run --rm node:$version-alpine /bin/sh -c "cd /home/node && apk add --no-cache git build-base python2 && git clone https://github.com/Gniar/zenaddress.git && cd zenaddress && git checkout $branch && npm install && npm run build"
   - npm install && npm run build
 deploy:
   node_js: "12"
